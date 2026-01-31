@@ -16,7 +16,7 @@ app.use(
       if (!origin) return callback(null, true)
 
       if (allowedOrigins.includes(origin)) {
-        callback(null, true);
+        callback(null, true)
       } else {
         callback(new Error("Not allowed by CORS"))
       }
@@ -26,14 +26,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 )
-
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin)
-  res.header("Access-Control-Allow-Credentials", "true")
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS")
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-  return res.sendStatus(200)
-})
 
 app.use(express.json({limit: "500mb"}))
 app.use(express.urlencoded({extended: true, limit: "500mb"}))
@@ -53,4 +45,3 @@ app.use("/api/v1/cart", cartRouter)
 app.use("/api/v1/orders", orderRouter)
 
 export {app}
-
