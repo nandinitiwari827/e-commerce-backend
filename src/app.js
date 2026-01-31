@@ -4,20 +4,10 @@ import cookieParser from "cookie-parser"
 
 let app=express()
 
-// app.use(cors({
-//     origin: [
-//     "http://localhost:5173",
-//     "http://localhost:5174",
-//     "https://your-frontend-url.onrender.com"
-//   ],
-//     credentials: true
-// }))
-
-
 let allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://your-frontend-url.onrender.com"
+  "https://e-commerce-website-self-kappa.vercel.app"
 ];
 
 app.use(cors({
